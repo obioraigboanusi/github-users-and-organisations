@@ -9,6 +9,7 @@ function SearchBar() {
     e.preventDefault();
     if (userName) {
       navigate(`/users/${userName}`);
+      setUserName("");
     }
   };
   return (
