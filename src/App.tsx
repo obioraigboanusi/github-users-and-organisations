@@ -2,7 +2,8 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AppLayout from "./components/AppLayout";
 import UserRepositories from "./components/UserRepositories";
-import USerDatils from "./pages/UserDetails";
+import Organisations from "./pages/Organisations";
+import UserDatils from "./pages/UserDetails";
 import Users from "./pages/Users";
 
 function App() {
@@ -10,8 +11,13 @@ function App() {
     <Routes>
       <Route path="/" element={<AppLayout />}>
         <Route index element={<Users />} />
-        <Route path="users/:userId" element={<USerDatils />}>
+        <Route path="users/:userId" element={<UserDatils />}>
           <Route index element={<UserRepositories />} />
+        </Route>
+        <Route path="organisations" element={<Organisations />}>
+          <Route path=":userId" element={<UserDatils />}>
+            <Route index element={<UserRepositories />} />
+          </Route>
         </Route>
       </Route>
     </Routes>

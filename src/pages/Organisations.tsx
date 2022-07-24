@@ -25,9 +25,14 @@ export interface IUser {
   type: string;
   url: string;
 }
+function Organisations() {
+  const {
+    data: organasations,
+    isLoading,
+    error,
+  } = useFetch(endpoints.GET_ORGANISATIONS);
+  console.log({ organasations });
 
-function Users() {
-  const { data: users, isLoading, error } = useFetch(endpoints.GET_USERS);
   if (isLoading) {
     return <Loader />;
   }
@@ -36,9 +41,9 @@ function Users() {
   }
   return (
     <div className="container">
-      <h3 className="my-3">Top Users on GitHub</h3>
+      <h3 className="my-3">Top Organisations on GitHub</h3>
       <ul className="list-unstyled row">
-        {users.map((user: IUser) => (
+        {organasations?.items?.map((user: IUser) => (
           <li key={user.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
             <UsersCard {...user} />
           </li>
@@ -48,4 +53,4 @@ function Users() {
   );
 }
 
-export default Users;
+export default Organisations;

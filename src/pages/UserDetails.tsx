@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 import { ImLocation2 } from "react-icons/im";
 import { HiOfficeBuilding } from "react-icons/hi";
 import styled from "styled-components";
+import Error from "../components/Error";
 
 interface IUserDetails {
   avatar_url: string;
@@ -57,12 +58,15 @@ function UserDetails() {
     bio,
     public_repos,
     company,
+    login,
   }: IUserDetails = userData || {};
 
   if (isLoading) {
     return <Loader />;
   }
-  console.log({ userData });
+  if (error) {
+    return <Error error={error} />;
+  }
 
   return (
     <section className="container">
@@ -74,19 +78,19 @@ function UserDetails() {
         </div>
         <div className="flex-grow-1">
           <div>
-            <h1 className="fw-bold">{name}</h1>
+            <h1 className="fw-bold">{name || login}</h1>
             <p>{bio}</p>
             <p className="d-flex align-items-center">
               <span className="me-3">
                 <HiOfficeBuilding />
               </span>
-              <span> {company}</span>
+              <span> {company || "--"}</span>
             </p>
             <p className="d-flex align-items-center">
               <span className="me-3">
                 <ImLocation2 />
               </span>
-              <span> {location}</span>
+              <span> {location || "--"}</span>
             </p>
           </div>
           <div className="row">
