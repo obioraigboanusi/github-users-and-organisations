@@ -20,7 +20,7 @@ function SearchBar() {
             <input
               className="me-2 px-3 p-2 flex-grow-1"
               type="search"
-              placeholder="Search user"
+              placeholder="Enter username of a user or organisation..."
               aria-label="Search"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
