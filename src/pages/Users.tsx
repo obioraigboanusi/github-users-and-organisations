@@ -1,6 +1,6 @@
 import React from "react";
 import endpoints from "../api/endpoints";
-import useFetch from "../api/hooks/useFetch";
+import useFetch from "../hooks/useFetch";
 import Loader from "../components/Loader";
 import UsersCard from "../components/Users/UsersCard";
 

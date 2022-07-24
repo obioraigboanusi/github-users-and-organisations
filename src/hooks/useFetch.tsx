@@ -1,6 +1,6 @@
 import { config } from "process";
 import { useEffect, useState } from "react";
-import AxiosInstance from "../AxiosInstance";
+import AxiosInstance from "../api/AxiosInstance";
 
 const useFetch = (url: string, options: object = {}) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);

@@ -1,7 +1,7 @@
 import React from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import endpoints from "../api/endpoints";
-import useFetch from "../api/hooks/useFetch";
+import useFetch from "../hooks/useFetch";
 import Loader from "../components/Loader";
 import { ImLocation2 } from "react-icons/im";
 import { HiOfficeBuilding } from "react-icons/hi";
@@ -47,7 +47,7 @@ function UserDetails() {
     data: userData,
     isLoading,
     error,
-  } = useFetch("users/obioraigboanusi");
+  } = useFetch(endpoints.GET_USER_Details(userId as string));
   const {
     avatar_url,
     name,
@@ -103,7 +103,13 @@ function UserDetails() {
         </div>
       </div>
       <div>
-        <div></div>
+        <div>
+          <ul className="list-unstyled">
+            <li>
+              <Link to={`/users/${userId}`}> Repositories</Link>
+            </li>
+          </ul>
+        </div>
         <Outlet />
       </div>
     </section>
@@ -117,10 +123,10 @@ const StyledAvatar = styled.div`
     width: 200px;
   }
 `;
-const Tag = styled.div`
+export const Tag = styled.div`
   span {
     display: inline-block;
-    padding: 5px 10px;
+    padding: 2px 5px;
     border-radius: 5px;
     background-color: #d3d3d390;
   }
