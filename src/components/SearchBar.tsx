@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
-  const [orgainsationName, setOrgainsationName] = useState("");
 
   const handleSearchUser = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
