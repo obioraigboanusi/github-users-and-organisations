@@ -31,7 +31,6 @@ function Organisations() {
     isLoading,
     error,
   } = useFetch(endpoints.GET_ORGANISATIONS);
-  console.log({ organasations });
 
   if (isLoading) {
     return <Loader />;

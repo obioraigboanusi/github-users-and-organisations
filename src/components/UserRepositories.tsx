@@ -12,8 +12,8 @@ function UserRepositories() {
     data: userRepos,
     isLoading,
     error,
-  } = useFetch(endpoints.GET_USER_REPOS(userId as string));
-  console.log({ userRepos });
+    } = useFetch(endpoints.GET_USER_REPOS(userId as string));
+    
   if (isLoading) {
     return <Loader />;
   }
