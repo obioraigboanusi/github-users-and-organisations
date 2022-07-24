@@ -31,11 +31,13 @@ function Users() {
     return <Loader />;
   }
   return (
-    <div >
+    <ul className="list-unstyled row">
       {users.map((user: IUser) => (
-        <UsersCard key={user.id} {...user} />
+        <li key={user.id} className="col-12 col-sm-2 col-md-3">
+          <UsersCard {...user} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
 
