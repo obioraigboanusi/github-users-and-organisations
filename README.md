@@ -1,6 +1,6 @@
 # GitHub Users and Organisations
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app allows user view list of GitHub users' and organizations' profiles, search by username, and view the details of a profile with its public repositories.
 
 ## Available Scripts
 
